@@ -42,7 +42,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .details {
   grid-area: 2 / 4 / 4 / 8;
   display: flex;

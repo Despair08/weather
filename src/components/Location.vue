@@ -8,11 +8,11 @@
 
 <script>
 export default {
-  name: 'app-location'
+  name: 'app-location',
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .location {
   grid-area: 2 / 1 / 4 / 4;
   display: flex;

@@ -1,8 +1,9 @@
 <template>
   <div class="header">
     <div class="header__checkbox"></div>
-    <input type="text" class="header__search" placeholder="Search your city">
-    <button class="header__submit"><img class="submit__icon" src="@/assets/location.svg"> Search</button>
+    <input class="header__search" type="text" placeholder="Search your city">
+    <button class="header__submit"><img class="submit__icon" src="@/assets/location.svg">
+      Search</button>
   </div>
 </template>
 
@@ -12,7 +13,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .header {
   grid-area: 1 / 1 / 2 / 8;
   height: 60px;
