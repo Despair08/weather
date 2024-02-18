@@ -1,14 +1,44 @@
 <template>
   <div class="location">
-    <h2 class="location__city"> city </h2>
-    <p class="location__time">09:00</p>
-    <p class="location__date">Saturday, 17 Feb</p>
+    <h2 class="location__city"> {{ cityName }} </h2>
+    <p class="location__time">{{ time }}</p>
+    <p class="location__date">{{ date }}</p>
   </div>
 </template>
 
 <script>
 export default {
   name: 'app-location',
+  props: {
+    city: String
+  },
+  data() {
+    return {
+      cityName: this.city,
+      date: null,
+      time: null,
+      monthNames: [`Jan`, `Feb`, `March`, `Apr`, `May`, `Jun`, `Jul`, `Aug`, `Sep`, `Oct`, `Nov`, `Dec`],
+      dayNames: ['Monday', 'Thursday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    }
+  },
+  methods: {
+    getTime() {
+      setInterval(() => {
+        const date = new Date();
+        let minutes, hours;
+        date.getMinutes() < 10 ? minutes = '0' + date.getMinutes() : minutes = date.getMinutes();
+        date.getHours() < 10 ? hours = '0' + date.getHours() : hours = date.getHours();
+        return this.time = `${hours}:${minutes}`;
+      }, 1000);
+    }
+  },
+  mounted() {
+    this.getTime()
+  },
+  created() {
+    const date = new Date();
+    this.date = `${this.dayNames[date.getDay()]}, ${date.getDate()} ${this.monthNames[date.getMonth()]}`;
+  }
 }
 </script>
 
@@ -23,6 +53,7 @@ export default {
   background-color: #444444;
   border-radius: 30px;
   box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.50);
+  user-select: none;
 
   &__city {
     font-size: 36px;
