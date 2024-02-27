@@ -1,12 +1,7 @@
 <template>
   <div id="app">
     <div class="wrapper">
-      <div class="header">
-        <div class="header__checkbox"></div>
-        <input class="header__search" type="text" placeholder="Search your city" v-model="city">
-        <button class="header__submit" @click="searchCity"><img class="submit__icon" src="@/assets/location.svg">
-          Search</button>
-      </div>
+      <FormInput></FormInput>
       <Location v-if="showWeather" :city="city"></Location>
       <Details v-if="showWeather" :city="city"></Details>
       <DayForecast v-if="showWeather" :city="city"></DayForecast>
@@ -20,10 +15,13 @@ import Location from './components/Location.vue';
 import Details from './components/Details.vue';
 import DayForecast from './components/DayForecast.vue';
 import HourForecast from './components/HourForecast.vue';
+import FormInput from "@/components/formInput/FormInput.vue";
 
 export default {
+
   name: 'App',
   components: {
+    FormInput,
     Location,
     Details,
     DayForecast,
@@ -32,15 +30,15 @@ export default {
   data() {
     return {
       city: '',
-      showWeather: false,
+      showWeather: true,
     }
   },
   methods: {
-    async searchCity() {
-      this.showWeather = false;
-      await this.$nextTick();
-      this.city === '' ? this.showWeather = false : this.showWeather = true;
-    }
+    // async searchCity() {
+    //   this.showWeather = false;
+    //   await this.$nextTick();
+    //   this.city === '' ? this.showWeather = false : this.showWeather = true;
+    // }
   }
 }
 </script>
