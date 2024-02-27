@@ -70,50 +70,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.hours {
-  grid-area: 4 / 3 / 6 / 8;
-  padding: 25px;
-  color: #fff;
-  background-color: #444444;
-  border-radius: 30px;
-  box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.50);
-
-  &__title {
-    font-size: 32px;
-    font-weight: 700;
-    text-align: center;
-  }
-
-  &__list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    gap: 15px;
-  }
-}
-
-.item {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 30px;
-  border-radius: 40px;
-  background-color: #373636;
-  font-size: 20px;
-  font-weight: 700;
-
-  &__time {
-    font-size: 24px;
-  }
-
-  &__icon {}
-
-  &__value {}
-
-  &__nav {}
-
-  &__wind-value {}
-}
+@import '@/styles/hourForecast';
 </style>
